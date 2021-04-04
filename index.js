@@ -14,7 +14,7 @@ const page = await browser.newPage();
 await page.goto('https://vex-over-internet.glitch.me');
 
 while (true) {
-  await page.waitForTimeout(2);
+  await page.waitForTimeout(10);
   const data = await page.evaluate(() => {
     let headingFromWeb = document.querySelectorAll("span[class=messageBody]");
     const headingList = [...headingFromWeb];
@@ -32,30 +32,3 @@ while (true) {
 }
 
 })();
-
-
-/*
-const puppeteer = require('puppeteer');
-
-var MONTH = [];
-
-(async () => {
-  const browser = await puppeteer.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    executablePath: '/usr/bin/chromium-browser'
-  });
-  const page = await browser.newPage();
-  await page.goto('https://vex-over-internet.glitch.me');
-
-  for (var i = 0; i < 999999999999999999999999; i++) {
-    MONTH = await page.evaluate(() => {
-      let headingFromWeb = document.querySelectorAll("span[class=messageBody]");
-      const headingList = [...headingFromWeb];
-      return headingList.map(h => h.innerHTML);
-    });
-    console.log(MONTH);
-  }
-
-
-})();
-*/
